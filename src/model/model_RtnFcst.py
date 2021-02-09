@@ -14,6 +14,7 @@ from .model_utils import getFactor
 from .model_utils import calculateStatistics
 from src.utils import deco_print
 from src.utils import sharpe
+from src.utils import construct_long_short_portfolio
 
 class FeedForwardModelWithNA_Return_Ensembled:
 	def __init__(self, logdirs, model_params, mode, force_var_reuse=False, global_step=None):
