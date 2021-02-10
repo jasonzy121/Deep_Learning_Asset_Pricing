@@ -16,3 +16,5 @@
 	$ python3 run_RtnFcst_ensembles.py --config config_RF --logdir output_RF --task_id 1 --trial_id 1
 
 ### Step 5: Run the remaining cells of model_GAN.ipynb to get EV and XS-R2 pricing results
+
+Datasets can be found at [Google Drive](https://drive.google.com/drive/folders/1TrYzMUA_xLID5-gXOy_as8sH2ahLwz-l?usp=sharing)
