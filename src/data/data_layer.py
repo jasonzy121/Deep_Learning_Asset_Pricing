@@ -59,7 +59,6 @@ class DataInRamInputLayer:
 
 		### Dictionary
 		self._idx2date, self._date2idx = self._create_var_idx_associations(tmp['date'])
-		self._idx2permno, self._permno2idx = self._create_var_idx_associations(tmp['permno'])
 		self._idx2var, self._var2idx = self._create_var_idx_associations(tmp['variable'][1:])
 		self._dateCount, self._permnoCount, self._varCount = data.shape
 		self._varCount -= 1
@@ -105,17 +104,11 @@ class DataInRamInputLayer:
 	def getDateList(self):
 		return [self._idx2date[i] for i in range(self._dateCount)]
 
-	def getPermnoList(self):
-		return [self._idx2permno[i] for i in range(self._permnoCount)]
-
 	def getIndividualFeatureList(self):
 		return [self._idx2var[i] for i in range(self._varCount)]
 
 	def getDateByIdx(self, idx):
 		return self._idx2date[idx]
-
-	def getPermnoByIdx(self, idx):
-		return self._idx2permno[idx]
 
 	def getIndividualFeatureByIdx(self, idx):
 		return self._idx2var[idx]

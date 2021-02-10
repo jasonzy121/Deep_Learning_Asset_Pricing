@@ -4,7 +4,7 @@ import os
 from src.utils import sort_by_task_id
 
 UNK = -99.99
-task_ids = [1,2,3,4]
+task_ids = [1]
 
 tmp_train = np.load('datasets/char/Char_train.npz')
 tmp_valid = np.load('datasets/char/Char_valid.npz')
@@ -41,5 +41,5 @@ for task_id in task_ids:
             np.savez(path_valid, date = tmp_valid['date'], variable = tmp_valid['variable'], permno = tmp_valid['permno'], data = valid_data)
 
             path_test = os.path.join('datasets', 'RF', 'RF_test_normalized_task_%d.npz' % (task_id))
-            np.savez(path_test, date = tmp_test['date'], variable = tmp_test['variable'], permno = tmp_test['permno'], data = test_data)
+            np.savez(path_test, date = tmp_test['date'], variable = tmp_test['variable'], data = test_data)
 

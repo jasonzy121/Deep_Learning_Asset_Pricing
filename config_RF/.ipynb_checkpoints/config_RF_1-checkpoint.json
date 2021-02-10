@@ -1,0 +1,27 @@
+{
+    "individual_feature_file": "datasets/RF/RF_train_normalized_task_1.npz",
+    "individual_feature_file_valid": "datasets/RF/RF_valid_normalized_task_1.npz",
+    "individual_feature_file_test": "datasets/RF/RF_test_normalized_task_1.npz",
+
+    "macro_feature_file": "datasets/macro/macro_train.npz",
+    "macro_feature_file_valid": "datasets/macro/macro_valid.npz",
+    "macro_feature_file_test": "datasets/macro/macro_test.npz",
+    
+    "sub_epoch": false,
+    "macro_idx" : [],
+
+    "macro_feature_dim": 0,
+    "individual_feature_dim": 46,
+
+    "num_layers": 3,
+    "hidden_dim": [32,16,8],
+    "dropout": 0.95,
+
+    "mode": "train",
+    "num_epochs": 2048,
+
+    "loss_factor": 1.0,
+    "weighted_loss": false,
+    "optimizer": "Adam",
+    "learning_rate": 0.001
+}
