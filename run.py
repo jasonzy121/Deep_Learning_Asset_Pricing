@@ -9,12 +9,14 @@ from src.utils import deco_print
 
 tf.flags.DEFINE_string('config', '', 'Path to the file with configurations')
 tf.flags.DEFINE_string('logdir', '', 'Path to save logs and checkpoints')
+tf.flags.DEFINE_string('task_id', '', 'ID of task')
 
 tf.flags.DEFINE_integer('saveBestFreq', -1, 'Frequency to save best model')
 tf.flags.DEFINE_boolean('printOnConsole', True, 'Print on console or not')
 tf.flags.DEFINE_boolean('saveLog', True, 'Save log or not')
 tf.flags.DEFINE_integer('printFreq', 128, 'Frequency to print on console')
 tf.flags.DEFINE_integer('ignoreEpoch', 64, 'Ignore first several epochs')
+tf.flags.DEFINE_integer('trial_id', 0, 'ID of trials')
 
 FLAGS = tf.flags.FLAGS
 
@@ -63,7 +65,9 @@ def main(_):
 	sess = tf.Session(config=sess_config)
 	model.randomInitialization(sess)
 	
-	sharpe_train, sharpe_valid, sharpe_test = model.train(sess, dl, dl_valid, FLAGS.logdir, model_valid, 
+	logdir_trial = os.path.join(FLAGS.logdir, 'Task_%s_Trial_%d'%(FLAGS.task_id, FLAGS.trial_id))
+	os.system('mkdir -p ' + logdir_trial)
+	sharpe_train, sharpe_valid, sharpe_test = model.train(sess, dl, dl_valid, logdir_trial, model_valid, 
 		loss_weight=loss_weight, loss_weight_valid=loss_weight_valid,
 		dl_test=dl_test, model_test=model_test, loss_weight_test=loss_weight_test, 
 		printOnConsole=FLAGS.printOnConsole, printFreq=FLAGS.printFreq, saveLog=FLAGS.saveLog, 

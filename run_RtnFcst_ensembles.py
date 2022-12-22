@@ -57,6 +57,7 @@ def main(_):
 	model = FeedForwardModelWithNA_Return(config, 'train', global_step=global_step)
 	gpu_options = tf.GPUOptions(allow_growth=True)
 	sess_config = tf.ConfigProto(gpu_options=gpu_options)
+	sess_config.gpu_options.allow_growth = True
 	sess = tf.Session(config=sess_config)
 	model.randomInitialization(sess)
 
